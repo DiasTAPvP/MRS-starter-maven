@@ -15,6 +15,8 @@ public class MovieDAO_File implements IMovieDataAccess {
 
     //Relative path ((checks from the project root folder))
     private static final String MOVIES_FILE = "data/movie_titles.txt";
+    //private Path filePath = Paths.get(MOVIES_FILE);
+    //^ Alternative way to define path for the getAllMovies method
 
     /**
      * Reads all movies from the file
@@ -23,26 +25,33 @@ public class MovieDAO_File implements IMovieDataAccess {
      */
     //The @Override annotation is not required, but is recommended for readability
     // and to force the compiler to check and generate error msg. if needed etc.
+
     @Override
     public List<Movie> getAllMovies() throws IOException {
+
         // Read all lines from file
         List<String> lines = Files.readAllLines(Paths.get(MOVIES_FILE));
+        //readAllLines(filePath); if using alternative Path filePath
+
         //Create list of movie objects
         List<Movie> movies = new ArrayList<>();
 
         // Parse each line as movie
         //Loop through all lines in the file (List)
         for (String line : lines) {
+            //Map data to object
             String[] separatedLine = line.split(",");
 
             int id = Integer.parseInt(separatedLine[0]);
             int year = Integer.parseInt(separatedLine[1]);
             String title = separatedLine[2];
+
             if (separatedLine.length > 3) {
                 for (int i = 3; i < separatedLine.length; i++) {
                     title += "," + separatedLine[i];
                 }
             }
+            //Create movie object and add to the movies list
             Movie movie = new Movie(id, year, title);
             movies.add(movie);
         }
