@@ -1,11 +1,15 @@
 package dk.easv.mrs.DAL;
+//Project Imports
 import dk.easv.mrs.BE.Movie;
+//Java Imports
 import java.util.ArrayList;
 import java.util.List;
 
 public class MovieDAO_Mock implements IMovieDataAccess {
 
     private List<Movie> allMovies;
+
+    //Mock data follows
 
     public MovieDAO_Mock()
     {

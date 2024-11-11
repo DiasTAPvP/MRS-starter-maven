@@ -6,6 +6,12 @@ public class Movie {
     private String title;
     private int year;
 
+    /**
+     * Constructor for Movie
+     * @param id
+     * @param year
+     * @param title
+     */
     public Movie(int id, int year, String title) {
         this.id = id;
         this.title = title;

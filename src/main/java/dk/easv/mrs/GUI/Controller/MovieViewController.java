@@ -1,7 +1,8 @@
 package dk.easv.mrs.GUI.Controller;
-
+//Project Imports
 import dk.easv.mrs.BE.Movie;
 import dk.easv.mrs.GUI.Model.MovieModel;
+//Java Imports
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
@@ -16,6 +17,10 @@ public class MovieViewController implements Initializable {
     public ListView<Movie> lstMovies;
     private MovieModel movieModel;
 
+
+    /**
+     * Constructor for MovieViewController
+     */
     public MovieViewController()  {
 
         try {
@@ -26,7 +31,11 @@ public class MovieViewController implements Initializable {
         }
     }
 
-
+    /**
+     * Initializes the MovieViewController
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -43,6 +52,10 @@ public class MovieViewController implements Initializable {
 
     }
 
+    /**
+     * Displays an error message
+     * @param t
+     */
     private void displayError(Throwable t)
     {
         Alert alert = new Alert(Alert.AlertType.ERROR);
